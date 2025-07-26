@@ -1,5 +1,5 @@
 pipeline {
-agent docker.io
+agent docker
 stages {
     stage('Checkout') {
         steps {
