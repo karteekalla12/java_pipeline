@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'Building the application...'
                 //build stage will create the artifacts directory
-                sh 'mvnw clean install -DskipTests'
+                sh 'mvn clean package'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Running unit tests...'
                 //test is to test that artifacts directory
-                sh 'mvnw test'
+                sh 'mvn test'
             }
         }
     }
