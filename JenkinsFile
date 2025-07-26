@@ -9,12 +9,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code...'
+                //it will checkout to the git repo...
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the application...'
+                //build stage will create the artifacts directory
                 sh 'mvn clean install -DskipTests'
             }
         }
@@ -22,6 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
+                //test is to test that artifacts directory
                 sh 'mvn test'
             }
         }
