@@ -1,1 +1,11 @@
-
+pipeline {
+agent any
+stages {
+    stage('Checkout') {
+        steps {
+            echo 'Checking out code...'
+            // The 'Pipeline script from SCM' option performs an implicit checkout
+            }
+        }
+    }
+}
