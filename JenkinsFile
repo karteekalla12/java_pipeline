@@ -9,7 +9,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code...'
-                //it will checkout to the git repo...
             }
         }
 
