@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Building the application...'
                 //build stage will create the artifacts directory
-                sh 'mvn clean install -DskipTests'
+                sh 'mvnw clean install -DskipTests'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Running unit tests...'
                 //test is to test that artifacts directory
-                sh 'mvn test'
+                sh 'mvnw test'
             }
         }
     }
@@ -35,6 +35,18 @@ pipeline {
             echo 'Processing results...'
             junit 'target/surefire-reports/**/*.xml'
             archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+        }
+    }
+    post{
+        success{
+            echo "====++++only when successful++++===="
+        }
+        failure{
+            echo "====++++only when failed++++===="
+        }
+        always{
+            echo "====++++always++++===="
+            cleanWs()
         }
     }
 }
