@@ -31,22 +31,16 @@ pipeline {
     }
 
     post {
-        always {
-            echo 'Processing results...'
-            junit 'target/surefire-reports/**/*.xml'
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-        }
-    }
-    post{
         success{
             echo "====++++only when successful++++===="
         }
         failure{
             echo "====++++only when failed++++===="
         }
-        always{
-            echo "====++++always++++===="
-            cleanWs()
+        always {
+            echo 'Processing results...'
+            junit 'target/surefire-reports/**/*.xml'
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
         }
     }
 }
