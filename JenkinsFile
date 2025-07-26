@@ -4,7 +4,7 @@ stages {
     stage('Checkout') {
         steps {
             echo 'Checking out code...'
-            // The 'Pipeline script from SCM' option performs an implicit checkout
+            // The 'Pipeline script from SCM (source code management)' option performs an implicit checkout
             }
         }
     stage('Build') {
